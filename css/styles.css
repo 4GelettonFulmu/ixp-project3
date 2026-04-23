@@ -1,0 +1,178 @@
+
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #1a1a1a;
+  --accent-color: #ff3e00; 
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  transition: background-color 0.8s ease;
+}
+
+.container {
+  text-align: center;
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
+  letter-spacing: -0.02em;
+}
+
+button {
+  padding: 15px 40px;
+  font-size: 4rem;
+  background: none;
+  border: 3px solid var(--text-color);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+
+
+
+
+
+
+.btn-alarm:hover {
+  animation: jitter 0.1s infinite;
+  background: var(--text-color);
+  color: white;
+}
+
+@keyframes jitter {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(2px, -1px); }
+  50% { transform: translate(-1px, 2px); }
+  75% { transform: translate(1px, -2px); }
+}
+
+.btn-alarm:active {
+  transform: scale(0.9);
+  box-shadow: 0 0 0 100px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+
+
+.btn-stayup:hover {
+  background-color: #000033;
+  color: #555;
+  border-color: #333;
+  filter: blur(0.5px);
+}
+
+.btn-stayup:active {
+  transform: scale(1.5);
+  opacity: 0;
+  filter: blur(20px);
+}
+
+
+
+
+
+#sleep-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 3s cubic-bezier(0.45, 0, 0.55, 1);
+  z-index: 999;
+}
+
+.btn-sleep:hover {
+  letter-spacing: 0.5em;
+  opacity: 0.5;
+  filter: blur(1px);
+}
+
+body.sleeping #sleep-overlay {
+  opacity: 1;
+}
+
+body.sleeping .container {
+  filter: blur(10px);
+  transition: filter 2s ease;
+}
+
+
+
+
+
+
+
+
+
+.btn-wake {
+  filter: blur(8px);
+}
+
+.btn-wake:hover {
+  filter: blur(0px);
+}
+
+.btn-wake:active {
+  background: white;
+  box-shadow: 0 0 0 2000px white;
+}
+
+
+
+
+
+
+
+body.is-shaking {
+  animation: screen-shake 0.1s infinite;
+}
+
+@keyframes screen-shake {
+  0% { background-color: #f4f4f4; transform: translate(0,0); }
+  20% { background-color: #ff0000; transform: translate(-5px, 5px); }
+  40% { background-color: #00ffff; transform: translate(5px, -5px); }
+  60% { background-color: #ff0000; transform: translate(-5px, -5px); }
+  80% { background-color: #f4f4f4; transform: translate(5px, 5px); }
+}
+
+.glitch-text {
+  font-weight: 900;
+  font-style: italic;
+  text-shadow: 2px 2px #ff0000, -2px -2px #00ffff;
+}
+
+.btn-aggressive-v2 {
+  background: #000;
+  color: #fff;
+  border: 4px solid #fff;
+  font-size: 1.5rem;
+  font-weight: 900;
+  padding: 20px 60px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-aggressive-v2:hover {
+  transform: scale(1.1);
+  box-shadow: 10px 10px 0px #ff0000;
+}
